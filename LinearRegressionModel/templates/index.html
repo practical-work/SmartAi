@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction Final Score</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>Student Performance Prediction</nav>
+    </header>
+    <p>Home page</p>
+    <main>
+        <form action="/predict" method="POST" style="text-align: center;">
+            <label for="Study_Hours">Study Hours</label><br>
+            <input type="number" name="Study_Hours" id="Study_Hours" placeholder="Enter Study Hours" required><br>
+            <label for="Attendance_Percentage">Attendance Percentage</label><br>
+            <input type="number" name="Attendance_Percentage" id="Attendance_Percentage" placeholder="Enter attendance percentage" required><br>
+            <label for="Previous_Exam_Score">Previous Exam Score</label><br>
+            <input type="number" name="Previous_Exam_Score" id="Previous_Exam_Score" placeholder="Enter Previous Exam Score" required><br>
+            <label for="Assignment_Completion">Assignment Completion</label><br>
+            <input type="number" name="Assignment_Completion" id="Assignment_Completion" placeholder="Enter Number of Assignment Completed" required> <br>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <br>
+    {% if predicted_value %}
+        <p>Final Score Prediction Value : {{predicted_value}}</p>
+    {% endif %}
+    {% if (intercept and coefs) %}
+       <li>Model Coefficients and Intercept details for y = b0 + b1*X1 + b2*X2 + b3*X3 + b4*X4</li>
+       <li>Intercept (b0) : {{intercept}}</li>
+       <li>Coefficients [b1,b2,b3,b4] : {{coefs}}</li>
+    {% endif %}
+    {% if (mae and mse and r2 and rmse) %}
+        <ul>
+            <li>Performance Analysis for Multiple Value Linear Regreesion Model</li>
+            <li>Mean Absolute Error : {{mae}}</li>
+            <li>Mean Squared Error : {{mse}}</li>
+            <li>Root Mean Squared Error : {{rmse}}</li>
+            <li>R2 Score : {{r2}}</li>
+        </ul>
+    {% endif %}
+    {% if plot_url %}
+            <p>Relationship Between each and every Features with Target Column</p>
+            <img src="data:image/png;base64,{{ plot_url }}"alt="Student Performance Graph" class="graph-img"
+            onclick="openImage(this.src)">
+            <div id="imageModal" class="modal" onclick="closeImage()">
+             <span class="close">&times;</span>
+             <img class="modal-content" id="popupImage">
+            </div>
+    {% endif %}
+    <footer>
+        <p>&copy2026 copyrights.All rights reserved.</p>
+    </footer>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
