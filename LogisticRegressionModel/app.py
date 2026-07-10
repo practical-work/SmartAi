@@ -4,6 +4,9 @@ import joblib # or pickle
 from flask import Flask,render_template,redirect,request,url_for
 from sklearn.metrics import (accuracy_score,precision_score,recall_score,f1_score,confusion_matrix,classification_report)
 import nltk
+import nltk
+nltk.download("punkt")
+nltk.download("punkt_tab")
 nltk.download("stopwords")
 import string
 from nltk.corpus import stopwords
