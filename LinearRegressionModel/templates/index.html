@@ -29,13 +29,14 @@
         <p>Final Score Prediction Value : {{predicted_value}}</p>
     {% endif %}
     {% if (intercept and coefs) %}
-       <li>Model Coefficients and Intercept details for y = b0 + b1*X1 + b2*X2 + b3*X3 + b4*X4</li>
-       <li>Intercept (b0) : {{intercept}}</li>
-       <li>Coefficients [b1,b2,b3,b4] : {{coefs}}</li>
+       <ul>Model Coefficients and Intercept details for y = b0 + b1*X1 + b2*X2 + b3*X3 + b4*X4
+        <li>Intercept (b0) : {{intercept}}</li>
+        <li>Coefficients [b1,b2,b3,b4] : {{coefs}}</li>
+       </ul>
     {% endif %}
     {% if (mae and mse and r2 and rmse) %}
         <ul>
-            <li>Performance Analysis for Multiple Value Linear Regreesion Model</li>
+            <li>Performance Analysis for Multiple Value Linear Regression Model</li>
             <li>Mean Absolute Error : {{mae}}</li>
             <li>Mean Squared Error : {{mse}}</li>
             <li>Root Mean Squared Error : {{rmse}}</li>

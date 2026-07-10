@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spam Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+   <header>
+      <h2 style="text-align: center;">Email Spam Detection Application</h2>
+   </header>
+   <br>
+     <div>Result may be wrong or correct based on following dataset model is trained.
+        <a href="{{ url_for('static', filename='dataset.csv') }}">CSV</a>
+    </div>
+    <br>
+    <main>
+        <form action="/Classification" method="POST" style="text-align: center;">
+           <label for="message">SMS/Email Message :</label><br><br>
+           <input type="text" placeholder="Enter your message here" name="msg" required><br><br>
+           <input type="submit" value="Submit">
+        </form>
+    </main>
+    <br>
+    <div style="text-align: center;">
+      {% if prediction is not none %}
+            {% if prediction == 0 %}
+                <h3 style="color:green;">🛡️ HAM (Not Spam)</h3>
+            {% elif prediction == 1 %}
+                <h3 style="color:red;">🚨 SPAM</h3>
+            {% endif %}
+     {% endif %}
+     {% if (intercept and coefs) %}
+       <ul>Model Coefficients and Intercept details for y = b0 + b1*X1 + b2*X2 + b3*X3 + b4*X4
+        <li>Intercept (b0) : {{intercept}}</li>
+        <li>Coefficients : {{coefs}}</li>
+       </ul>
+    {% endif %}
+     {% if (accuracy and precision and recall and f1 and ( cm is not none) and ( cr is not none ) )%}
+         <ul>
+            <li>Performance Analysis for Logistic Regression Model</li>
+            <li>Accuracy : {{accuracy}}</li>
+            <li>Precision : {{precision}}</li>
+            <li>Recall : {{recall}}</li>
+            <li>F1 Score : {{f1}}</li>
+            <li>Confusion Matrix : 
+            <br> 
+                <pre>{{cm}}</pre>
+            </li>
+            <li>Classification Report : 
+            <br> 
+               <pre>{{cr}}</pre> 
+            </li>
+        </ul>
+     {% endif %}
+    </div>
+    <footer>
+        <p style="text-align: center;">&copy; 2026 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
