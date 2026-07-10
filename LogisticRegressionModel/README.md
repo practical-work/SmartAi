@@ -180,10 +180,8 @@ gunicorn app:app
 
 ## Live Demo
 
-Add your deployed Render application URL here.
-
 ```
-https://logistic-regression-model.onrender.com
+https://logistic-regression-model-vm9u.onrender.com/
 ```
 
 ---
