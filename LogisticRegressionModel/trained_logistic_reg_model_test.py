@@ -84,12 +84,12 @@ print(f"Intercept (b0) : {model.intercept_[0]:.2f}")
 
 # performance evaluation
 
-accuracy = accuracy_score(y_pred,y_test)
-precision = precision_score(y_pred,y_test)
-recall = recall_score(y_pred,y_test)
-f1 = f1_score(y_pred,y_test)
-cm = confusion_matrix(y_pred,y_test)
-cr = classification_report(y_pred,y_test)
+accuracy = accuracy_score(y_test,y_pred)
+precision = precision_score(y_test,y_pred)
+recall = recall_score(y_test,y_pred)
+f1 = f1_score(y_test,y_pred)
+cm = confusion_matrix(y_test,y_pred)
+cr = classification_report(y_test,y_pred)
 
 print(f" Accuracy : {accuracy:.2f}")
 print(f" Precision : {precision:.2f}")
