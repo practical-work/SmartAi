@@ -1,0 +1,245 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#dfe9f3,#ffffff);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Header */
+header{
+    padding:15px 10px 5px;
+}
+
+header h1{
+    font-size:2rem;
+    margin-bottom:5px;
+}
+
+header p{
+    font-size:1rem;
+}
+
+/* Main */
+main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex:1;
+    padding:10px;
+}
+
+/* Form Card */
+form{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Labels */
+label{
+    display:block;
+    text-align:left;
+    margin-top:10px;
+    margin-bottom:5px;
+    font-weight:600;
+    color:#2c3e50;
+}
+
+/* Inputs */
+input[type="text"],
+select{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input[type="text"]:focus,
+select:focus{
+    border-color:#3498db;
+    box-shadow:0 0 6px rgba(52,152,219,0.3);
+}
+
+/* Button */
+input[type="submit"]{
+    width:100%;
+    margin-top:18px;
+    padding:12px;
+    background:#3498db;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+input[type="submit"]:hover{
+    background:#2980b9;
+}
+
+/* Result */
+.result{
+    max-width:850px;
+    width:95%;
+    margin:15px auto;
+    text-align:center;
+}
+
+.result ul{
+    list-style:none;
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    text-align:left;
+}
+
+.result li{
+    margin-bottom:10px;
+    line-height:1.5;
+}
+
+pre{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    overflow-x:auto;
+}
+
+/* Prediction Colors */
+.survived{
+    color:#27ae60;
+    margin-bottom:15px;
+}
+
+.not-survived{
+    color:#e74c3c;
+    margin-bottom:15px;
+}
+
+/* Footer */
+footer{
+    padding:10px;
+    text-align:center;
+    color:#555;
+}
+
+/* ===========================
+   Laptop (1366x768)
+=========================== */
+@media (min-width:1024px){
+
+    body{
+        overflow-y:auto;
+    }
+
+    form{
+        max-width:520px;
+        padding:20px;
+    }
+
+    label{
+        margin-top:8px;
+    }
+
+    input[type="text"],
+    select{
+        padding:9px;
+    }
+
+    input[type="submit"]{
+        padding:11px;
+    }
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:768px){
+
+    header h1{
+        font-size:1.7rem;
+    }
+
+    header p{
+        font-size:0.95rem;
+        padding:0 10px;
+    }
+
+    form{
+        width:95%;
+        padding:18px;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    header{
+        padding:15px 8px;
+    }
+
+    header h1{
+        font-size:1.5rem;
+    }
+
+    header p{
+        font-size:0.9rem;
+    }
+
+    form{
+        width:100%;
+        padding:15px;
+        border-radius:10px;
+    }
+
+    label{
+        font-size:14px;
+    }
+
+    input[type="text"],
+    select{
+        padding:10px;
+        font-size:14px;
+    }
+
+    input[type="submit"]{
+        padding:12px;
+        font-size:15px;
+    }
+
+    .result{
+        width:98%;
+    }
+
+    .result ul{
+        padding:15px;
+        font-size:14px;
+    }
+
+    pre{
+        font-size:12px;
+    }
+
+}
